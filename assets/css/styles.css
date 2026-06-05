@@ -1,0 +1,66 @@
+/* ============================================================================
+   GENI KPI Tracker — styles
+   :root variables + component classes lifted verbatim from the base GENI panel
+   (dark GitHub-fintech theme), plus tracker-specific additions below the line.
+   ========================================================================== */
+:root{--bg:#0d1117;--pan:#161b22;--pan2:#1c2230;--bdr:#2a2f3a;--tx:#e6edf3;--mut:#8b949e;
+--grn:#3fb950;--grnbg:rgba(63,185,80,0.1);--red:#f85149;--redbg:rgba(248,81,73,0.1);
+--gold:#d4a017;--goldbg:rgba(212,160,23,0.08);--blu:#1f6feb;--pur:#bc8cff;
+--fm:'SF Mono',ui-monospace,Menlo,Consolas,monospace;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.55;padding:18px;}
+.wrap{max-width:1080px;margin:0 auto;}
+
+/* ---- header (kept from base, extended with mission + last-updated) ---- */
+.hd{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--bdr);padding-bottom:12px;margin-bottom:6px;}
+.hd h1{font-size:23px;font-weight:700;letter-spacing:-0.3px;}
+.hd .tk{font-size:13px;color:var(--mut);font-family:var(--fm);}
+.hd .px{font-size:13px;color:var(--mut);font-family:var(--fm);} .hd .px b{color:var(--tx);}
+.mission{font-size:12.5px;color:var(--mut);margin:9px 0 2px;} .mission b{color:var(--tx);}
+
+/* ---- section titles (kept from base, with optional sub-line) ---- */
+.section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--mut);margin:24px 0 12px;padding-bottom:5px;border-bottom:1px solid var(--bdr);}
+.section-title .sub{display:block;font-weight:400;letter-spacing:0;text-transform:none;color:var(--mut);font-size:11px;margin-top:4px;}
+
+/* ---- KPI strip (kept from base, made responsive 4–6 up) ---- */
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:8px;margin:6px 0 4px;}
+.kpi{background:var(--pan);border:1px solid var(--bdr);border-radius:8px;padding:9px 11px;}
+.kpi .k{font-size:10px;color:var(--mut);}
+.kpi .v{font-size:16px;font-weight:700;display:flex;align-items:center;gap:5px;}
+.kpi .vs{font-size:10px;color:var(--mut);}
+.tr{font-size:11px;} .tr-up{color:var(--grn);} .tr-down{color:var(--red);} .tr-flat{color:var(--mut);}
+
+/* ---- chart cards + responsive grid (kept from base .chart-card / .chart2) ---- */
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.chart-card{background:var(--pan);border:1px solid var(--bdr);border-radius:10px;padding:14px 16px;margin-bottom:12px;}
+.chart-card .ct{font-size:12.5px;font-weight:600;margin-bottom:3px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+.chart-card .cs{font-size:11px;color:var(--mut);margin-bottom:8px;min-height:14px;}
+.canvas-wrap{position:relative;height:210px;}
+
+/* ---- data-type tags (provenance). Border style mirrors the line style. ---- */
+.tag{flex:0 0 auto;font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:.5px;padding:2px 6px;border-radius:5px;white-space:nowrap;}
+.tag-reported{color:var(--grn);border:1px solid var(--grn);}        /* solid  */
+.tag-estimate{color:var(--gold);border:1px dashed var(--gold);}    /* dashed */
+.tag-illustrative{color:var(--mut);border:1px dotted var(--mut);}  /* dotted */
+.tag-needs_data{color:var(--mut);border:1px solid var(--bdr);background:var(--pan2);}
+
+/* ---- legends ---- */
+.legend{font-size:10px;color:var(--mut);margin-top:7px;font-family:var(--fm);} .legend span{display:inline-block;margin-right:12px;}
+.type-legend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:10.5px;color:var(--mut);font-family:var(--fm);background:var(--pan);border:1px solid var(--bdr);border-radius:8px;padding:9px 12px;margin:12px 0 2px;}
+.type-legend .li{display:flex;align-items:center;gap:6px;}
+.swatch{display:inline-block;width:22px;height:0;}
+.sw-reported{border-top:2px solid var(--tx);}
+.sw-estimate{border-top:2px dashed var(--tx);}
+.sw-illustrative{border-top:2px dotted var(--mut);}
+.sw-needs{display:inline-block;width:14px;height:10px;border:1px dashed var(--bdr);border-radius:2px;}
+.sw-market{border-top:3px solid var(--grn);width:22px;}
+.sw-share{border-top:3px solid var(--blu);width:22px;}
+.sw-monet{border-top:3px solid var(--gold);width:22px;}
+
+/* ---- footer (kept from base .src / .disc) ---- */
+.src{font-size:10px;color:var(--mut);font-family:var(--fm);line-height:1.9;border-top:1px solid var(--bdr);padding-top:12px;margin-top:26px;} .src b{color:var(--tx);}
+.disc{font-size:10px;color:var(--mut);margin-top:8px;padding:8px 12px;background:var(--pan);border-radius:6px;}
+.err{color:#f5a3a0;font-size:12px;padding:11px 14px;border:1px solid var(--red);border-radius:8px;background:var(--redbg);} .err code{font-family:var(--fm);}
+
+/* ---- responsive: chart grids collapse to 1-up (extends base @media) ---- */
+@media(max-width:720px){.chart-grid{grid-template-columns:1fr;}}

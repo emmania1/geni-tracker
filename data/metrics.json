@@ -1,0 +1,294 @@
+{
+  "updated": "2026-06-05",
+  "price": 6.05,
+  "mktcap": "1.55B",
+  "ev": "2.20B",
+
+  "kpis": [
+    {
+      "label": "US in-play % of GGR",
+      "value": "35%",
+      "sub": "18% (2021) → 35% (2025) · EU mature ~78%",
+      "trend": "up",
+      "type": "estimate"
+    },
+    {
+      "label": "GENI revenue (2026E PF)",
+      "value": "$1.1B",
+      "sub": "~$256M (2021) → ~$1.1B incl. Legend",
+      "trend": "up",
+      "type": "estimate"
+    },
+    {
+      "label": "Rev / event (indexed)",
+      "value": "2.1×",
+      "sub": "vs 1.0 in 2022 · illustrative, not a reported metric",
+      "trend": "up",
+      "type": "illustrative"
+    },
+    {
+      "label": "Incremental EBITDA margin",
+      "value": "53–55%",
+      "sub": "recent quarter · supports 28%→35% group margin",
+      "trend": "up",
+      "type": "estimate"
+    },
+    {
+      "label": "Adj EBITDA margin (2026E)",
+      "value": "28%",
+      "sub": "~2% (2021) → 28% guide",
+      "trend": "up",
+      "type": "estimate"
+    },
+    {
+      "label": "GENI / SRAD data rights",
+      "value": ">90%",
+      "sub": "~2-player duopoly on official league data",
+      "trend": "flat",
+      "type": "estimate"
+    }
+  ],
+
+  "series": [
+    {
+      "id": "us_handle",
+      "section": "market",
+      "label": "US legal sports-betting handle",
+      "unit": "$B",
+      "type": "estimate",
+      "source": "State regulators / Roth (approx)",
+      "status": "ok",
+      "note": "~31 states live; CA + TX not yet legal (each >$3B potential GGR)",
+      "data": [
+        {"period": "2021", "value": 57},
+        {"period": "2022", "value": 94},
+        {"period": "2023", "value": 121},
+        {"period": "2024", "value": 150},
+        {"period": "2025", "value": 175},
+        {"period": "2026E", "value": 200}
+      ]
+    },
+    {
+      "id": "us_ggr",
+      "section": "market",
+      "label": "US sports-betting GGR & hold %",
+      "unit": "$B",
+      "type": "reported",
+      "source": "State regulators",
+      "status": "needs_data",
+      "note": "GGR ($) and implied hold %",
+      "data": []
+    },
+    {
+      "id": "us_inplay_pct",
+      "section": "market",
+      "label": "US in-play as % of GGR",
+      "unit": "%",
+      "type": "estimate",
+      "source": "Roth / company",
+      "status": "ok",
+      "note": "Headline mix-shift metric (panel measures vs GGR, not handle)",
+      "data": [
+        {"period": "2021", "value": 18},
+        {"period": "2022", "value": 24},
+        {"period": "2023", "value": 28},
+        {"period": "2024", "value": 32},
+        {"period": "2025", "value": 35},
+        {"period": "2026E", "value": 40},
+        {"period": "2029E", "value": 50}
+      ],
+      "benchmark": {"label": "EU mature", "value": 78}
+    },
+    {
+      "id": "bettor_penetration",
+      "section": "market",
+      "label": "US adults who bet (penetration)",
+      "unit": "%",
+      "type": "estimate",
+      "source": "Company / internal est.",
+      "status": "ok",
+      "note": "~50% of population still cannot legally bet",
+      "data": [
+        {"period": "2024", "value": 12},
+        {"period": "2026", "value": 20}
+      ]
+    },
+    {
+      "id": "legal_states",
+      "section": "market",
+      "label": "US states with legal sports betting",
+      "unit": "states",
+      "type": "estimate",
+      "source": "State regulators",
+      "status": "needs_data",
+      "note": "~31 live as of 2026 — backfill the time series",
+      "data": []
+    },
+    {
+      "id": "prediction_mkt_volume",
+      "section": "market",
+      "label": "Prediction-market volume (Kalshi / Polymarket)",
+      "unit": "$B",
+      "type": "estimate",
+      "source": "Kalshi / Polymarket public data",
+      "status": "needs_data",
+      "note": "The 'expanding pie' line — new venues that still settle on official data",
+      "data": []
+    },
+
+    {
+      "id": "geni_revenue",
+      "section": "share",
+      "label": "GENI group revenue",
+      "unit": "$M",
+      "type": "estimate",
+      "source": "GENI 6-Ks; 2026E is pro-forma incl. full-year Legend",
+      "status": "ok",
+      "note": "~25% CAGR since 2021 SPAC",
+      "data": [
+        {"period": "2021", "value": 256},
+        {"period": "2022", "value": 340},
+        {"period": "2023", "value": 413},
+        {"period": "2024", "value": 512},
+        {"period": "2025", "value": 645},
+        {"period": "2026E PF", "value": 1100}
+      ]
+    },
+    {
+      "id": "geni_take_of_ggr",
+      "section": "share",
+      "label": "GENI betting revenue ÷ US GGR (take of market)",
+      "unit": "%",
+      "type": "estimate",
+      "source": "GENI 6-Ks + state-regulator GGR",
+      "status": "needs_data",
+      "note": "GENI's 'take' of the market over time",
+      "data": []
+    },
+    {
+      "id": "geni_srad_split",
+      "section": "share",
+      "label": "GENI vs Sportradar — official data rights split",
+      "unit": "%",
+      "type": "estimate",
+      "source": "GENI / SRAD filings",
+      "status": "needs_data",
+      "note": "Duopoly controls >90% of official league data rights",
+      "data": []
+    },
+    {
+      "id": "leagues_under_contract",
+      "section": "share",
+      "label": "Leagues / events under exclusive rights",
+      "unit": "count",
+      "type": "reported",
+      "source": "GENI 6-Ks",
+      "status": "needs_data",
+      "note": "~1,000+ orgs; NFL through 2029, EPL, NCAA, FIBA",
+      "data": []
+    },
+    {
+      "id": "geni_rev_vs_handle_growth",
+      "section": "share",
+      "label": "GENI revenue growth vs US handle growth",
+      "unit": "%",
+      "type": "estimate",
+      "source": "GENI 6-Ks + state-regulator handle",
+      "status": "needs_data",
+      "note": "Out-growing the market = share gain via mix / cross-sell (underlying levels shown elsewhere)",
+      "data": []
+    },
+
+    {
+      "id": "ebitda_margin",
+      "section": "monetization",
+      "label": "Adj EBITDA margin",
+      "unit": "%",
+      "type": "estimate",
+      "source": "GENI (actuals); 2026E guide / 2028E ambition",
+      "status": "ok",
+      "note": "Operating-leverage proof — the whole case is this line holding",
+      "data": [
+        {"period": "2021", "value": 2},
+        {"period": "2022", "value": 8},
+        {"period": "2023", "value": 13},
+        {"period": "2024", "value": 17},
+        {"period": "2025", "value": 20},
+        {"period": "2026E", "value": 28},
+        {"period": "2028E", "value": 35}
+      ]
+    },
+    {
+      "id": "rev_per_event",
+      "section": "monetization",
+      "label": "Monetization per event (indexed, 2022 ≈ 1.0)",
+      "unit": "x",
+      "type": "illustrative",
+      "source": "Internal estimate — not a reported GENI metric",
+      "status": "ok",
+      "note": "Directional index of betting revenue ÷ events covered as in-play mix, BetVision attach & ads layer on",
+      "data": [
+        {"period": "2022", "value": 1.05},
+        {"period": "2023", "value": 1.2},
+        {"period": "2024", "value": 1.45},
+        {"period": "2025", "value": 1.75},
+        {"period": "2026E", "value": 2.1}
+      ]
+    },
+    {
+      "id": "inplay_vs_prematch_take",
+      "section": "monetization",
+      "label": "In-play vs pre-match take-rate",
+      "unit": "x",
+      "type": "estimate",
+      "source": "GENI disclosures + internal est.",
+      "status": "needs_data",
+      "note": "~2.5–3× per company (range; no time series sourced yet)",
+      "data": []
+    },
+    {
+      "id": "betvision_attach",
+      "section": "monetization",
+      "label": "BetVision in-play attach rate & avg bet size",
+      "unit": "%",
+      "type": "reported",
+      "source": "GENI (NFL season disclosures)",
+      "status": "needs_data",
+      "note": "76% in-play attach in inaugural NFL season; bets ~2.5× larger — backfill series",
+      "data": []
+    },
+    {
+      "id": "media_rev_per_user",
+      "section": "monetization",
+      "label": "Media / ad revenue per user (FanHub + Legend)",
+      "unit": "$",
+      "type": "estimate",
+      "source": "GENI + internal est.",
+      "status": "needs_data",
+      "note": "Legend network: 320M visits / 118M users",
+      "data": []
+    },
+    {
+      "id": "rev_over_rights_cost",
+      "section": "monetization",
+      "label": "Group revenue ÷ rights cost (spread over fixed base)",
+      "unit": "x",
+      "type": "estimate",
+      "source": "GENI 6-Ks",
+      "status": "needs_data",
+      "note": "Is the spread over the fixed data-cost base widening?",
+      "data": []
+    },
+    {
+      "id": "incremental_ebitda_margin",
+      "section": "monetization",
+      "label": "Incremental adj EBITDA margin",
+      "unit": "%",
+      "type": "estimate",
+      "source": "GENI / internal est.",
+      "status": "needs_data",
+      "note": "~53–55% recent quarter (range) — the monetization-efficiency proof",
+      "data": []
+    }
+  ]
+}
