@@ -56,10 +56,12 @@
       "label": "US legal sports-betting handle",
       "unit": "$B",
       "type": "reported",
-      "source": "American Gaming Association Commercial Gaming Revenue Tracker",
+      "source": "AGA Commercial Gaming Revenue Tracker (2023–2025); AGA State of the States 2022 (2021); 2022 derived (~$93B; GGR ÷ 8.1% hold / 2023 ÷ 1.278)",
       "status": "ok",
-      "note": "2022 ≈ $93.8B (derived from 2023 handle ÷ 1.278) — pull exact 2021–2022 from AGA CY2021/CY2022 reports. Q1 2026 handle $43.52B (partial year, don't plot on annual axis).",
+      "note": "2021 reported (AGA State of the States); 2022 = ~$93B, derived (2023 handle ÷ 1.278). Q1 2026 handle $43.52B (partial year — don't plot on annual axis).",
       "data": [
+        {"period": "2021", "value": 57.7},
+        {"period": "2022", "value": 93},
         {"period": "2023", "value": 119.84},
         {"period": "2024", "value": 149.9},
         {"period": "2025", "value": 166.94}
@@ -71,10 +73,11 @@
       "label": "US sports-betting GGR & hold %",
       "unit": "$B",
       "type": "reported",
-      "source": "American Gaming Association Commercial Gaming Revenue Tracker",
+      "source": "AGA Commercial Gaming Revenue Tracker (2022–2025); AGA State of the States 2022 (2021)",
       "status": "ok",
-      "note": "Hold: 2023 9.1%, 2024 ~9.2%, 2025 ~10.2%, Q1 2026 9.8%. Backfill 2021 GGR from AGA CY2021. Q1 2026 GGR $4.27B (partial).",
+      "note": "Hold: 2023 9.1%, 2024 ~9.2%, 2025 ~10.2%, Q1 2026 9.8%. Now covers 2021–2025. Q1 2026 GGR $4.27B (partial).",
       "data": [
+        {"period": "2021", "value": 4.33},
         {"period": "2022", "value": 7.50},
         {"period": "2023", "value": 10.92},
         {"period": "2024", "value": 13.78},
@@ -89,7 +92,7 @@
       "type": "estimate",
       "source": "Modeled — operator decks + analyst notes (not a reported series)",
       "status": "ok",
-      "note": "No reported series exists — modeled from operator decks (Flutter/FanDuel, DraftKings) + analyst notes. Pick % of GGR vs % of handle and stay consistent.",
+      "note": "No reported series exists — modeled from operator decks (Flutter/FanDuel, DraftKings) + analyst notes. Basis: % of GGR (settled), same basis as the EU ~78% benchmark.",
       "data": [
         {"period": "2021", "value": 18},
         {"period": "2022", "value": 24},
@@ -235,6 +238,51 @@
       ]
     },
     {
+      "id": "geni_betting_growth",
+      "section": "share",
+      "label": "GENI betting revenue growth (YoY)",
+      "unit": "%",
+      "type": "estimate",
+      "source": "Derived from GENI FY betting revenue (209.3 / 274.2 / 354.9 / 471.5)",
+      "status": "ok",
+      "note": "GENI betting-segment revenue growth. Global revenue — read alongside us_handle_growth.",
+      "data": [
+        {"period": "2023", "value": 31.0},
+        {"period": "2024", "value": 29.4},
+        {"period": "2025", "value": 32.9}
+      ]
+    },
+    {
+      "id": "us_handle_growth",
+      "section": "share",
+      "label": "US sports-betting handle growth (YoY)",
+      "unit": "%",
+      "type": "reported",
+      "source": "AGA Commercial Gaming Revenue Tracker",
+      "status": "ok",
+      "note": "US-only handle growth. The market decelerated sharply in 2025 (+11%) while GENI kept growing ~33%.",
+      "data": [
+        {"period": "2023", "value": 27.8},
+        {"period": "2024", "value": 25.1},
+        {"period": "2025", "value": 11.4}
+      ]
+    },
+    {
+      "id": "geni_rev_vs_handle_growth",
+      "section": "share",
+      "label": "GENI growth premium vs US handle market",
+      "unit": "pp",
+      "type": "estimate",
+      "source": "Derived: GENI betting-rev growth − US handle growth",
+      "status": "ok",
+      "note": "GENI's growth premium over the US market widened from ~3pp to ~22pp in 2025 — the core 'gaining share / monetizing better' signal. ⚠️ Global rev vs US handle, so it overstates pure US share gain (also reflects intl growth, price increases on renewals, cross-sell). Fairer comp vs US GGR growth (+45.6% / +26.2% / +23.1%): premium is −14.6 / +3.2 / +9.8pp — still positive and widening in 2024–25.",
+      "data": [
+        {"period": "2023", "value": 3.2},
+        {"period": "2024", "value": 4.3},
+        {"period": "2025", "value": 21.5}
+      ]
+    },
+    {
       "id": "geni_take_of_ggr",
       "section": "share",
       "label": "GENI betting revenue ÷ US GGR (take of market)",
@@ -265,17 +313,6 @@
       "source": "GENI 6-Ks",
       "status": "needs_data",
       "note": "NFL through 2030 Super Bowl; Serie A through 2029; FIBA 10-yr through 2035. Backfill count by year from investor decks.",
-      "data": []
-    },
-    {
-      "id": "geni_rev_vs_handle_growth",
-      "section": "share",
-      "label": "GENI revenue growth vs US handle growth",
-      "unit": "%",
-      "type": "estimate",
-      "source": "GENI 6-Ks + AGA GGR / SRAD filings",
-      "status": "needs_data",
-      "note": "Out-growing the market = share gain via mix / cross-sell. Derive once both inputs are loaded.",
       "data": []
     },
 
