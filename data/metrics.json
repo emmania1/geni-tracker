@@ -178,8 +178,10 @@
       "type": "reported",
       "source": "GENI FY press releases / 6-Ks",
       "status": "ok",
-      "note": "Q1 2026 = $146.2M (+33%). Backfill 2021–2023 from filings.",
+      "note": "Q1 2026 = $146.2M (+33%). Backfill 2021 from FY2021 6-K.",
       "data": [
+        {"period": "2022", "value": 209.3},
+        {"period": "2023", "value": 274.2},
         {"period": "2024", "value": 354.9},
         {"period": "2025", "value": 471.5}
       ]
@@ -192,8 +194,10 @@
       "type": "reported",
       "source": "GENI FY press releases (2025 Media derived: 669.5 − 471.5 − 53.5)",
       "status": "ok",
-      "note": "2025 figure derived from group less Betting less Sports Tech. Q1 2026 = $41.7M. Confirm exact 2025 Media from 20-F.",
+      "note": "2025 derived (group − Betting − SportsTech). Q1 2026 = $41.7M. Backfill 2021 from FY2021 6-K. Confirm exact 2025 Media from 20-F.",
       "data": [
+        {"period": "2022", "value": 82.7},
+        {"period": "2023", "value": 91.6},
         {"period": "2024", "value": 105.3},
         {"period": "2025", "value": 144.5}
       ]
@@ -206,8 +210,10 @@
       "type": "reported",
       "source": "GENI FY press releases",
       "status": "ok",
-      "note": "⚠️ SEGMENT BREAK: discontinued as a separate reported segment from Q1 2026 — GENI now reports two segments (Betting + Media). Do not extend past 2025.",
+      "note": "2022/2023 derived (group − Betting − Media). ⚠️ SEGMENT BREAK: discontinued as a separate reported segment from Q1 2026 — GENI now reports two segments (Betting + Media). Do not extend past 2025. Backfill 2021 from FY2021 6-K.",
       "data": [
+        {"period": "2022", "value": 49.0},
+        {"period": "2023", "value": 47.2},
         {"period": "2024", "value": 50.7},
         {"period": "2025", "value": 53.5}
       ]
