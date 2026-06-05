@@ -13,11 +13,11 @@
       "type": "estimate"
     },
     {
-      "label": "GENI revenue (2026E PF)",
-      "value": "$1.1B",
-      "sub": "~$256M (2021) → ~$1.1B incl. Legend",
+      "label": "GENI revenue (FY2025)",
+      "value": "$669.5M",
+      "sub": "FY2025 reported · ~$1.1B 2026E PF (incl. Legend)",
       "trend": "up",
-      "type": "estimate"
+      "type": "reported"
     },
     {
       "label": "Rev / event (indexed)",
@@ -55,17 +55,14 @@
       "section": "market",
       "label": "US legal sports-betting handle",
       "unit": "$B",
-      "type": "estimate",
-      "source": "State regulators / Roth (approx)",
+      "type": "reported",
+      "source": "American Gaming Association Commercial Gaming Revenue Tracker",
       "status": "ok",
-      "note": "~31 states live; CA + TX not yet legal (each >$3B potential GGR)",
+      "note": "2022 ≈ $93.8B (derived from 2023 handle ÷ 1.278) — pull exact 2021–2022 from AGA CY2021/CY2022 reports. Q1 2026 handle $43.52B (partial year, don't plot on annual axis).",
       "data": [
-        {"period": "2021", "value": 57},
-        {"period": "2022", "value": 94},
-        {"period": "2023", "value": 121},
-        {"period": "2024", "value": 150},
-        {"period": "2025", "value": 175},
-        {"period": "2026E", "value": 200}
+        {"period": "2023", "value": 119.84},
+        {"period": "2024", "value": 149.9},
+        {"period": "2025", "value": 166.94}
       ]
     },
     {
@@ -74,10 +71,15 @@
       "label": "US sports-betting GGR & hold %",
       "unit": "$B",
       "type": "reported",
-      "source": "State regulators",
-      "status": "needs_data",
-      "note": "GGR ($) and implied hold %",
-      "data": []
+      "source": "American Gaming Association Commercial Gaming Revenue Tracker",
+      "status": "ok",
+      "note": "Hold: 2023 9.1%, 2024 ~9.2%, 2025 ~10.2%, Q1 2026 9.8%. Backfill 2021 GGR from AGA CY2021. Q1 2026 GGR $4.27B (partial).",
+      "data": [
+        {"period": "2022", "value": 7.50},
+        {"period": "2023", "value": 10.92},
+        {"period": "2024", "value": 13.78},
+        {"period": "2025", "value": 16.96}
+      ]
     },
     {
       "id": "us_inplay_pct",
@@ -85,9 +87,9 @@
       "label": "US in-play as % of GGR",
       "unit": "%",
       "type": "estimate",
-      "source": "Roth / company",
+      "source": "Modeled — operator decks + analyst notes (not a reported series)",
       "status": "ok",
-      "note": "Headline mix-shift metric (panel measures vs GGR, not handle)",
+      "note": "No reported series exists — modeled from operator decks (Flutter/FanDuel, DraftKings) + analyst notes. Pick % of GGR vs % of handle and stay consistent.",
       "data": [
         {"period": "2021", "value": 18},
         {"period": "2022", "value": 24},
@@ -105,12 +107,12 @@
       "label": "US adults who bet (penetration)",
       "unit": "%",
       "type": "estimate",
-      "source": "Company / internal est.",
+      "source": "AGA / industry estimates (RG.org)",
       "status": "ok",
-      "note": "~50% of population still cannot legally bet",
+      "note": "~20% of US adults placed a legal bet in 2025, up from 12% in 2023; ~50% of population still can't legally bet. Estimate, not a hard count. (Replaces seeded 2024:12/2026:20 with correct years.)",
       "data": [
-        {"period": "2024", "value": 12},
-        {"period": "2026", "value": 20}
+        {"period": "2023", "value": 12},
+        {"period": "2025", "value": 20}
       ]
     },
     {
@@ -119,7 +121,7 @@
       "label": "US states with legal sports betting",
       "unit": "states",
       "type": "estimate",
-      "source": "State regulators",
+      "source": "AGA / state regulators",
       "status": "needs_data",
       "note": "~31 live as of 2026 — backfill the time series",
       "data": []
@@ -130,7 +132,7 @@
       "label": "Prediction-market volume (Kalshi / Polymarket)",
       "unit": "$B",
       "type": "estimate",
-      "source": "Kalshi / Polymarket public data",
+      "source": "Kalshi + Polymarket public data",
       "status": "needs_data",
       "note": "The 'expanding pie' line — new venues that still settle on official data",
       "data": []
@@ -141,17 +143,89 @@
       "section": "share",
       "label": "GENI group revenue",
       "unit": "$M",
-      "type": "estimate",
-      "source": "GENI 6-Ks; 2026E is pro-forma incl. full-year Legend",
+      "type": "reported",
+      "source": "GENI FY press releases / 6-Ks, SEC CIK 1834489",
       "status": "ok",
-      "note": "~25% CAGR since 2021 SPAC",
+      "note": "FY group revenue, reported actuals. 2026 guidance tracked separately (see revenue guidance series).",
       "data": [
-        {"period": "2021", "value": 256},
-        {"period": "2022", "value": 340},
-        {"period": "2023", "value": 413},
-        {"period": "2024", "value": 512},
-        {"period": "2025", "value": 645},
+        {"period": "2021", "value": 262.7},
+        {"period": "2022", "value": 341.0},
+        {"period": "2023", "value": 413.0},
+        {"period": "2024", "value": 510.9},
+        {"period": "2025", "value": 669.5}
+      ]
+    },
+    {
+      "id": "geni_revenue_guide",
+      "section": "share",
+      "label": "GENI revenue — guidance",
+      "unit": "$M",
+      "type": "estimate",
+      "source": "GENI 2026 guidance (standalone $810–820M; pro-forma incl. Legend ~$1.1B)",
+      "status": "ok",
+      "note": "Anchored at 2025 actual so the dashed guide line connects to the solid reported line. PF includes full-year Legend.",
+      "data": [
+        {"period": "2025", "value": 669.5},
+        {"period": "2026E", "value": 815},
         {"period": "2026E PF", "value": 1100}
+      ]
+    },
+    {
+      "id": "geni_betting_rev",
+      "section": "share",
+      "label": "Betting Tech segment revenue",
+      "unit": "$M",
+      "type": "reported",
+      "source": "GENI FY press releases / 6-Ks",
+      "status": "ok",
+      "note": "Q1 2026 = $146.2M (+33%). Backfill 2021–2023 from filings.",
+      "data": [
+        {"period": "2024", "value": 354.9},
+        {"period": "2025", "value": 471.5}
+      ]
+    },
+    {
+      "id": "geni_media_rev",
+      "section": "share",
+      "label": "Media Tech segment revenue",
+      "unit": "$M",
+      "type": "reported",
+      "source": "GENI FY press releases (2025 Media derived: 669.5 − 471.5 − 53.5)",
+      "status": "ok",
+      "note": "2025 figure derived from group less Betting less Sports Tech. Q1 2026 = $41.7M. Confirm exact 2025 Media from 20-F.",
+      "data": [
+        {"period": "2024", "value": 105.3},
+        {"period": "2025", "value": 144.5}
+      ]
+    },
+    {
+      "id": "geni_sportstech_rev",
+      "section": "share",
+      "label": "Sports Tech & Services revenue",
+      "unit": "$M",
+      "type": "reported",
+      "source": "GENI FY press releases",
+      "status": "ok",
+      "note": "⚠️ SEGMENT BREAK: discontinued as a separate reported segment from Q1 2026 — GENI now reports two segments (Betting + Media). Do not extend past 2025.",
+      "data": [
+        {"period": "2024", "value": 50.7},
+        {"period": "2025", "value": 53.5}
+      ]
+    },
+    {
+      "id": "geni_net_loss",
+      "section": "share",
+      "label": "Group net loss (magnitude)",
+      "unit": "$M",
+      "type": "reported",
+      "source": "GENI FY press releases / 6-Ks",
+      "status": "ok",
+      "note": "Reported as positive magnitudes. Q1 2026 net loss $55.5M. 2025 loss widened on NFL warrant SBC + litigation — context for the 'adjusted vs GAAP' bear point.",
+      "data": [
+        {"period": "2022", "value": 182},
+        {"period": "2023", "value": 85.5},
+        {"period": "2024", "value": 63.0},
+        {"period": "2025", "value": 111.6}
       ]
     },
     {
@@ -160,9 +234,9 @@
       "label": "GENI betting revenue ÷ US GGR (take of market)",
       "unit": "%",
       "type": "estimate",
-      "source": "GENI 6-Ks + state-regulator GGR",
+      "source": "GENI 6-Ks + AGA GGR / SRAD filings",
       "status": "needs_data",
-      "note": "GENI's 'take' of the market over time",
+      "note": "GENI's 'take' of the market over time. Derive once both inputs are loaded.",
       "data": []
     },
     {
@@ -171,7 +245,7 @@
       "label": "GENI vs Sportradar — official data rights split",
       "unit": "%",
       "type": "estimate",
-      "source": "GENI / SRAD filings",
+      "source": "GENI 6-Ks + AGA GGR / SRAD filings",
       "status": "needs_data",
       "note": "Duopoly controls >90% of official league data rights",
       "data": []
@@ -184,7 +258,7 @@
       "type": "reported",
       "source": "GENI 6-Ks",
       "status": "needs_data",
-      "note": "~1,000+ orgs; NFL through 2029, EPL, NCAA, FIBA",
+      "note": "NFL through 2030 Super Bowl; Serie A through 2029; FIBA 10-yr through 2035. Backfill count by year from investor decks.",
       "data": []
     },
     {
@@ -193,9 +267,9 @@
       "label": "GENI revenue growth vs US handle growth",
       "unit": "%",
       "type": "estimate",
-      "source": "GENI 6-Ks + state-regulator handle",
+      "source": "GENI 6-Ks + AGA GGR / SRAD filings",
       "status": "needs_data",
-      "note": "Out-growing the market = share gain via mix / cross-sell (underlying levels shown elsewhere)",
+      "note": "Out-growing the market = share gain via mix / cross-sell. Derive once both inputs are loaded.",
       "data": []
     },
 
@@ -204,18 +278,46 @@
       "section": "monetization",
       "label": "Adj EBITDA margin",
       "unit": "%",
-      "type": "estimate",
-      "source": "GENI (actuals); 2026E guide / 2028E ambition",
+      "type": "reported",
+      "source": "GENI 6-Ks (adj EBITDA ÷ revenue); FY actuals",
       "status": "ok",
-      "note": "Operating-leverage proof — the whole case is this line holding",
+      "note": "2021 margin + 2026/28 guide tracked separately.",
       "data": [
-        {"period": "2021", "value": 2},
-        {"period": "2022", "value": 8},
-        {"period": "2023", "value": 13},
-        {"period": "2024", "value": 17},
-        {"period": "2025", "value": 20},
-        {"period": "2026E", "value": 28},
+        {"period": "2022", "value": 4.7},
+        {"period": "2023", "value": 12.9},
+        {"period": "2024", "value": 16.8},
+        {"period": "2025", "value": 20.4}
+      ]
+    },
+    {
+      "id": "ebitda_margin_guide",
+      "section": "monetization",
+      "label": "Adj EBITDA margin — guidance",
+      "unit": "%",
+      "type": "estimate",
+      "source": "GENI guidance (2026 PF ~29–30%; long-term 35% ambition)",
+      "status": "ok",
+      "note": "Anchored at 2025 actual (20.4%) so the dashed guide connects to the solid reported margin line.",
+      "data": [
+        {"period": "2025", "value": 20.4},
+        {"period": "2026E PF", "value": 29},
         {"period": "2028E", "value": 35}
+      ]
+    },
+    {
+      "id": "adj_ebitda_usd",
+      "section": "monetization",
+      "label": "Group adj EBITDA",
+      "unit": "$M",
+      "type": "reported",
+      "source": "GENI FY press releases / 6-Ks",
+      "status": "ok",
+      "note": "2021 unconfirmed (near breakeven) — leave out until 20-F check.",
+      "data": [
+        {"period": "2022", "value": 16},
+        {"period": "2023", "value": 53},
+        {"period": "2024", "value": 85.7},
+        {"period": "2025", "value": 136.2}
       ]
     },
     {
@@ -236,6 +338,19 @@
       ]
     },
     {
+      "id": "rev_over_rights_cost",
+      "section": "monetization",
+      "label": "Group revenue ÷ rights cost (spread over fixed base)",
+      "unit": "x",
+      "type": "reported",
+      "source": "GENI Q1 2026 6-K",
+      "status": "ok",
+      "note": "Q1 2026: rev $187.9M ÷ data/streaming rights cost $85.6M = 2.20. Backfill annual once full-year rights cost pulled from each 20-F. Higher = better monetization of the fixed rights base.",
+      "data": [
+        {"period": "Q1 2026", "value": 2.20}
+      ]
+    },
+    {
       "id": "inplay_vs_prematch_take",
       "section": "monetization",
       "label": "In-play vs pre-match take-rate",
@@ -243,7 +358,7 @@
       "type": "estimate",
       "source": "GENI disclosures + internal est.",
       "status": "needs_data",
-      "note": "~2.5–3× per company (range; no time series sourced yet)",
+      "note": "Company range ~2.5–3× — not a time series.",
       "data": []
     },
     {
@@ -254,7 +369,7 @@
       "type": "reported",
       "source": "GENI (NFL season disclosures)",
       "status": "needs_data",
-      "note": "76% in-play attach in inaugural NFL season; bets ~2.5× larger — backfill series",
+      "note": "76% in-play attach in inaugural NFL season; bets ~2.5× larger. Point disclosures, not yet a series.",
       "data": []
     },
     {
@@ -266,17 +381,6 @@
       "source": "GENI + internal est.",
       "status": "needs_data",
       "note": "Legend network: 320M visits / 118M users",
-      "data": []
-    },
-    {
-      "id": "rev_over_rights_cost",
-      "section": "monetization",
-      "label": "Group revenue ÷ rights cost (spread over fixed base)",
-      "unit": "x",
-      "type": "estimate",
-      "source": "GENI 6-Ks",
-      "status": "needs_data",
-      "note": "Is the spread over the fixed data-cost base widening?",
       "data": []
     },
     {

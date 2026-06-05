@@ -83,9 +83,11 @@ Color also encodes the **section**: market = green, GENI share = blue, monetizat
 - `benchmark: {label, value}` — draws a dashed reference line (e.g. EU mature in-play ≈ 78%).
 
 ### Seeded vs empty
-Only six series are pre-filled, all migrated from the internal base panel (Jun 2026):
-`us_handle`, `us_inplay_pct`, `bettor_penetration`, `geni_revenue`, `ebitda_margin`
-(all `estimate`), and `rev_per_event` (`illustrative`). Everything else is `needs_data`.
+A verified baseline is loaded (2026-06-05). **Reported** actuals: US handle & GGR (AGA), GENI
+group/segment revenue, adj EBITDA ($ and margin), net loss, and the Q1 2026 rights-cost ratio
+(all GENI filings, CIK 1834489). **Estimate**: bettor penetration, the modeled in-play % series,
+and the `*_guide` guidance series. **Illustrative**: the monetization-per-event index. Everything
+else stays `needs_data` with a precise `source`/`note` so backfill is one step.
 
 > ⚠️ **Denominator note:** the base panel measures in-play as **% of GGR**, while the build
 > brief references **% of handle**. The seeded `us_inplay_pct` series is faithfully labeled
@@ -95,15 +97,37 @@ Only six series are pre-filled, all migrated from the internal base panel (Jun 2
 
 ## Update cadence
 
-- **Each GENI 6-K** — refresh GENI revenue, segments, margins, rights/leagues, take-rate and
-  attach metrics. Q1 2026 6-K was dated **May 7 2026**; next is **~Aug 11 2026**.
-  SEC filings: EDGAR **CIK 1834489**.
-- **Quarterly** — refresh state-handle / GGR / in-play / # legal states from state regulator
-  reports + Roth / Texas Capital notes.
-- **Opportunistic** — Sportradar split from SRAD filings; prediction-market volume from
-  Kalshi / Polymarket public data.
+Verified primary sources for each block (use these — don't substitute estimates for reported lines):
 
-Bump the top-level `"updated"` field each time — it drives the header "Last updated" stamp.
+- **Each GENI 6-K / 20-F** (EDGAR **CIK 1834489**) — refresh group revenue (`geni_revenue`),
+  segment revenue (`geni_betting_rev`, `geni_media_rev`; note Sports Tech was discontinued as a
+  separate segment from Q1 2026), adj EBITDA (`adj_ebitda_usd`, `ebitda_margin`), net loss
+  (`geni_net_loss`), and rights-cost ratio (`rev_over_rights_cost`). Q1 2026 6-K was **May 7
+  2026**; next is **~Aug 11 2026**.
+- **Each AGA quarter** (American Gaming Association Commercial Gaming Revenue Tracker) — refresh
+  US handle (`us_handle`), GGR & hold (`us_ggr`), and bettor penetration (`bettor_penetration`).
+  Plot full calendar years on the annual axis; keep partial-year (e.g. Q1) figures in `note` only.
+- **Opportunistic** — Sportradar split (`geni_srad_split`) from SRAD filings; prediction-market
+  volume (`prediction_mkt_volume`) from Kalshi / Polymarket public data; in-play mix
+  (`us_inplay_pct`) is *modeled* (operator decks + analyst notes), not reported — keep it `estimate`.
+
+Guidance lives in dedicated `*_guide` series tagged `estimate` (dashed), so reported actuals stay
+clean `reported` (solid). Bump the top-level `"updated"` field each time — it drives the header
+"Last updated" stamp and the "Baseline as of …" caption. The fastest way to do all of this is the
+helper script below.
+
+### Helper: `scripts/add_point.py`
+
+```bash
+python scripts/add_point.py <series_id> <period> <value>
+# e.g.
+python scripts/add_point.py us_handle 2026 205
+python scripts/add_point.py geni_revenue "2026E PF" 1100
+```
+
+It appends (or updates) that period's point, flips `needs_data → ok` if the series was empty, and
+bumps `"updated"` to today. Stdlib only — no dependencies. It does **not** change a series' `type`;
+set `reported` / `estimate` / `illustrative` by hand in the JSON.
 
 ---
 

@@ -194,10 +194,16 @@
 
   function setHeader(m) {
     var stats = document.getElementById("hd-stats");
-    if (!stats) return;
-    stats.innerHTML =
-      "Price <b>$" + esc(m.price) + "</b> · Mkt cap <b>" + esc(m.mktcap) + "</b> · EV <b>" + esc(m.ev) +
-      "</b> · <span style=\"color:var(--mut)\">Last updated " + esc(m.updated) + "</span>";
+    if (stats) {
+      stats.innerHTML =
+        "Price <b>$" + esc(m.price) + "</b> · Mkt cap <b>" + esc(m.mktcap) + "</b> · EV <b>" + esc(m.ev) +
+        "</b> · <span style=\"color:var(--mut)\">Last updated " + esc(m.updated) + "</span>";
+    }
+    var asof = document.getElementById("asof");
+    if (asof) {
+      asof.textContent = "Baseline as of " + (m.updated || "—") +
+        " · appended each GENI 6-K (next ~Aug 11 2026) and each AGA quarter.";
+    }
   }
 
   /* ---- boot ---- */
