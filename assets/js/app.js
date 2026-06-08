@@ -206,9 +206,22 @@
     }
   }
 
+  /* ---- load metrics ----
+     Read the inline <script id="metrics-data"> block FIRST — this works when the page is
+     opened directly as a local file (file://), with no network request. Only fall back to
+     fetch() if the inline block is missing/unparseable (e.g. during local dev over http). */
+  function loadMetrics() {
+    var el = document.getElementById("metrics-data");
+    if (el && el.textContent.trim()) {
+      try { return Promise.resolve(JSON.parse(el.textContent)); }
+      catch (e) { console.error("inline #metrics-data parse failed, falling back to fetch:", e); }
+    }
+    return fetch("data/metrics.json", { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
+  }
+
   /* ---- boot ---- */
-  fetch("data/metrics.json", { cache: "no-store" })
-    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  loadMetrics()
     .then(function (m) {
       setHeader(m);
       renderKpis(m.kpis);
@@ -223,8 +236,9 @@
       ["sec-market", "sec-share", "sec-monetization"].forEach(function (id) {
         var host = document.getElementById(id);
         if (host) host.innerHTML =
-          '<div class="err">Failed to load <code>data/metrics.json</code> (' + esc(e.message) +
-          '). Serve this folder over HTTP — e.g. <code>python3 -m http.server</code> — or view it on GitHub Pages.</div>';
+          '<div class="err">Could not load metrics (' + esc(e.message) +
+          '). Data is embedded in index.html as &lt;script id="metrics-data"&gt;; re-run ' +
+          '<code>python3 scripts/add_point.py --sync</code> if it is missing.</div>';
       });
     });
 })();

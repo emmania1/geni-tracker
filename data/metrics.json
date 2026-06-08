@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-05",
+  "updated": "2026-06-07",
   "price": 6.05,
   "mktcap": "1.55B",
   "ev": "2.20B",
@@ -124,10 +124,19 @@
       "label": "US states with legal sports betting",
       "unit": "states",
       "type": "estimate",
-      "source": "AGA / state regulators",
-      "status": "needs_data",
-      "note": "~31 live as of 2026 — backfill the time series",
-      "data": []
+      "source": "AGA / Legal Sports Report / RG.org — live-legal states at year-end (approximate)",
+      "status": "ok",
+      "note": "Approximate — legal-vs-operational definitions vary by source. Anchors: 8 states ~1yr after PASPA (2018); 36+DC by early 2023; Missouri = 39th in Dec 2025. CA + TX still not live.",
+      "data": [
+        {"period": "2018", "value": 8},
+        {"period": "2019", "value": 14},
+        {"period": "2020", "value": 20},
+        {"period": "2021", "value": 30},
+        {"period": "2022", "value": 35},
+        {"period": "2023", "value": 38},
+        {"period": "2024", "value": 38},
+        {"period": "2025", "value": 39}
+      ]
     },
     {
       "id": "prediction_mkt_volume",
@@ -410,10 +419,12 @@
       "label": "BetVision in-play attach rate & avg bet size",
       "unit": "%",
       "type": "reported",
-      "source": "GENI (NFL season disclosures)",
-      "status": "needs_data",
-      "note": "76% in-play attach in inaugural NFL season; bets ~2.5× larger. Point disclosures, not yet a series.",
-      "data": []
+      "source": "GENI (inaugural NFL season disclosure)",
+      "status": "ok",
+      "note": "76% in-play attach in BetVision's first NFL season; bets ~2.5× larger. Single disclosed point, not yet a trend — extend as GENI discloses later seasons.",
+      "data": [
+        {"period": "2024", "value": 76}
+      ]
     },
     {
       "id": "media_rev_per_user",
@@ -432,10 +443,14 @@
       "label": "Incremental adj EBITDA margin",
       "unit": "%",
       "type": "estimate",
-      "source": "GENI / internal est.",
-      "status": "needs_data",
-      "note": "~53–55% recent quarter (range) — the monetization-efficiency proof",
-      "data": []
+      "source": "Derived: ΔAdj EBITDA ÷ ΔRevenue (16/53/85.7/136.2 EBITDA; 341/413/510.9/669.5 rev)",
+      "status": "ok",
+      "note": "Full-year incremental margin (change in EBITDA ÷ change in revenue). Runs below the 53–55% single-quarter figure GENI cites because the NFL rights step-up compressed 2024–25. The monetization-efficiency trend.",
+      "data": [
+        {"period": "2023", "value": 51},
+        {"period": "2024", "value": 33},
+        {"period": "2025", "value": 32}
+      ]
     }
   ]
 }
