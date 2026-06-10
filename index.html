@@ -84,7 +84,7 @@
      python3 scripts/add_point.py --sync -->
 <script id="metrics-data" type="application/json">
 {
-  "updated": "2026-06-07",
+  "updated": "2026-06-08",
   "price": 6.05,
   "mktcap": "1.55B",
   "ev": "2.20B",
@@ -226,13 +226,16 @@
     {
       "id": "prediction_mkt_volume",
       "section": "market",
-      "label": "Prediction-market volume (Kalshi / Polymarket)",
+      "label": "Polymarket annual trading volume",
       "unit": "$B",
       "type": "estimate",
-      "source": "Kalshi + Polymarket public data",
-      "status": "needs_data",
-      "note": "The 'expanding pie' line — new venues that still settle on official data",
-      "data": []
+      "source": "The Block / Token Terminal (Polymarket calendar-year volume)",
+      "status": "ok",
+      "note": "The 'expanding pie'. Polymarket only (cleanest multi-year series): 2023 ≈ $0.07B → 2024 ≈ $9B (US-election surge). ⚠️ 2025 annual figures vary 10×+ by source/definition (calendar vs annualized vs monthly) — omitted, not plotted. Context: combined Kalshi+Polymarket ≈ $24B/MONTH by Apr 2026 (Pew); Kalshi 2025 ≈ $22.9B, ~89% sports. Sports share: Kalshi ~80%, Polymarket ~39%.",
+      "data": [
+        {"period": "2023", "value": 0.073},
+        {"period": "2024", "value": 9.0}
+      ]
     },
 
     {
@@ -382,10 +385,15 @@
       "label": "GENI betting revenue ÷ US GGR (take of market)",
       "unit": "%",
       "type": "estimate",
-      "source": "GENI 6-Ks + AGA GGR / SRAD filings",
-      "status": "needs_data",
-      "note": "GENI's 'take' of the market over time. Derive once both inputs are loaded.",
-      "data": []
+      "source": "Derived: GENI betting revenue ÷ US GGR (both series in this dashboard)",
+      "status": "ok",
+      "note": "GENI betting rev ÷ US GGR. ⚠️ GENI betting revenue is GLOBAL while AGA GGR is US-only, so this OVERSTATES the true US take — GENI does not break out US-only betting revenue. Directional proxy, not a clean US take-rate.",
+      "data": [
+        {"period": "2022", "value": 2.8},
+        {"period": "2023", "value": 2.5},
+        {"period": "2024", "value": 2.6},
+        {"period": "2025", "value": 2.8}
+      ]
     },
     {
       "id": "geni_srad_split",
@@ -404,9 +412,9 @@
       "label": "Leagues / events under exclusive rights",
       "unit": "count",
       "type": "reported",
-      "source": "GENI 6-Ks",
+      "source": "GENI / European Leagues press releases (2025)",
       "status": "needs_data",
-      "note": "NFL through 2030 Super Bowl; Serie A through 2029; FIBA 10-yr through 2035. Backfill count by year from investor decks.",
+      "note": "GENI cites '1,000+ leagues/orgs' (a floor, not a clean count — no public year-by-year series to plot). Confirmed exclusive rights: NFL (through 2030 SB), Premier League/EFL/SPFL (2025-26→2028-29), Serie A (through 2029), European Leagues 18 leagues / 46 competitions / 8,000+ matches (Aug 2025, through 2029), FIBA (10-yr through 2035).",
       "data": []
     },
 
