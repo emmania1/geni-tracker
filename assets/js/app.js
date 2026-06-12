@@ -226,7 +226,13 @@
       setHeader(m);
       renderKpis(m.kpis);
       var by = { market: [], share: [], monetization: [] };
-      (m.series || []).forEach(function (s) { if (by[s.section]) by[s.section].push(s); });
+      // Only render series that have data. Series with status "needs_data" (nothing yet) are
+      // hidden — their definitions stay in metrics.json and the chart reappears automatically
+      // once populated (e.g. via scripts/add_point.py).
+      (m.series || []).forEach(function (s) {
+        var hasData = s.status !== "needs_data" && s.data && s.data.length > 0;
+        if (hasData && by[s.section]) by[s.section].push(s);
+      });
       renderSection("sec-market", by.market);
       renderSection("sec-share", by.share);
       renderSection("sec-monetization", by.monetization);

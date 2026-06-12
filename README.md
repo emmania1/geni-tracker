@@ -52,7 +52,7 @@ Find the series by `id` in `data/metrics.json` and append to its `data` array:
 - `period` is any label string (`"2025"`, `"2026E"`, `"Q1 2026"`, `"H1 2026"` — quarterly and
   annual can mix on one chart).
 - If a series is currently empty, also flip `"status": "needs_data"` → `"status": "ok"` so the
-  chart draws the line instead of the **awaiting data** placeholder.
+  chart appears (empty `needs_data` series are hidden from the dashboard until they have data).
 - Update the top-level `"updated"` date and the header `price` / `mktcap` / `ev` when relevant.
 
 No build step. Refresh the page (or redeploy) and the chart picks it up.
@@ -71,8 +71,9 @@ confused with a placeholder:
 | `estimate`     | Analyst / internal estimate                     | **dashed**          | gold      |
 | `illustrative` | Directional only — *not* a real metric          | **dotted, greyed**  | grey      |
 
-`"status": "needs_data"` with an empty `data` array renders an empty, labeled chart (axes +
-title + an "awaiting data" note) — never a fabricated line.
+`"status": "needs_data"` with an empty `data` array is **hidden** from the dashboard until it has
+data — the series definition stays in the JSON and the chart reappears automatically once populated.
+Never a fabricated line.
 
 Color also encodes the **section**: market = green, GENI share = blue, monetization = gold.
 (`illustrative` overrides to grey so it always reads as not-real.)
